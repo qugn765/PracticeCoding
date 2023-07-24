@@ -1,0 +1,7 @@
+-- 코드를 입력하세요
+SELECT a.ANIMAL_ID, a.NAME 
+FROM ANIMAL_INS a 
+inner join ANIMAL_OUTS b
+on a.ANIMAL_ID = b.ANIMAL_ID
+ORDER BY b.DATETIME - a.DATETIME desc
+FETCH FIRST 2 rows only
