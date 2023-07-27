@@ -66,6 +66,7 @@ class Solution {
 //     public static void DFS(int[][] maps, boolean[][] check_bool, int x , int y, int cnt){
 //         if(x == (maps.length - 1) && y == (maps[0].length - 1)){
 //             result.add(cnt);
+//             return;
 //         }
 //         for(int i = 0; i < 4; i++){
 //             int x2 = x + dx[i];
