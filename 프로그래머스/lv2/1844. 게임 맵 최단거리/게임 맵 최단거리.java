@@ -8,7 +8,8 @@ class Solution {
     public int solution(int[][] maps) {
         Queue<int[]> q1 = new LinkedList<>();
         List<Integer> result = new ArrayList<>();
-        maps[0][0] = 1;
+        boolean[][] check = new boolean[maps.length][maps[0].length];
+        check[0][0] = true;
         q1.offer(new int[] {0, 0, 1});
         while(!q1.isEmpty()){
             int[] tmp = q1.poll();
@@ -20,8 +21,8 @@ class Solution {
                 int y2 = tmp[1] + dy[k];
                 int cnt = tmp[2] + 1;
                 if(0 <= x2 && x2 < maps.length && 0 <= y2 && y2 < maps[0].length 
-                    && maps[x2][y2] == 1){
-                    maps[x2][y2] = 0;
+                    && maps[x2][y2] == 1 && !check[x2][y2]){
+                    check[x2][y2] = true;
                     q1.offer(new int[] {x2,y2,cnt});
                 }
             }
