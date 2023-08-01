@@ -14,14 +14,11 @@ class Solution {
     
     public static void DFS(int k, int[][] dungeons, int cnt, boolean[] check){
         //System.out.println("k  : " + k + " ,   cnt :  " + cnt);
-        if(k <= 0){
-            list1.add(cnt);
-        }
         for(int i = 0; i < dungeons.length; i++){
             if(k >= dungeons[i][0] && !check[i]){
-                boolean[] check_clone = check.clone();
-                check_clone[i] = true;
-                DFS(k - dungeons[i][1], dungeons, cnt + 1, check_clone);
+                check[i] = true;
+                DFS(k - dungeons[i][1], dungeons, cnt + 1, check);
+                check[i] = false;
             } else {
                 list1.add(cnt);
             }
